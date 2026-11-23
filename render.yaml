@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: fin-agent-web
+    runtime: docker
+    plan: starter
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /healthz
+    envVars:
+      - key: MAX_CONCURRENT_REQUESTS
+        value: "8"
+      - key: REQUESTS_PER_MINUTE
+        value: "60"

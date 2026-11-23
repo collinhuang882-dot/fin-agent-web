@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#142b43">
+  <meta name="description" content="Fin-Agent 投研工作台。连接自己的 Tushare 与模型 API，使用真实数据研究、筛选和回测。">
+  <title>Fin-Agent · 投研工作台</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='10' fill='%23087f79'/%3E%3Cpath d='M11 28V12h19M11 20h14' fill='none' stroke='white' stroke-width='4'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <svg xmlns="http://www.w3.org/2000/svg" class="icon-defs" aria-hidden="true"><defs>
+    <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></symbol>
+    <symbol id="i-spark" viewBox="0 0 24 24"><path d="m12 3 2.8 6.2L21 12l-6.2 2.8L12 21l-2.8-6.2L3 12l6.2-2.8Z"/><path d="m20 2 .6 1.4L22 4l-1.4.6L20 6l-.6-1.4L18 4l1.4-.6Z"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path d="m12 3 2.8 5.8 6.4.9-4.6 4.5 1.1 6.4-5.7-3-5.7 3 1.1-6.4-4.6-4.5 6.4-.9Z"/></symbol>
+    <symbol id="i-bag" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="14" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 12a25 25 0 0 0 18 0M12 11v4"/></symbol>
+    <symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 3v17h17M7 15l4-5 4 3 6-8"/></symbol>
+    <symbol id="i-file" viewBox="0 0 24 24"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9Zm0 0v6h6M8 13h8M8 17h5"/></symbol>
+    <symbol id="i-settings" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/><circle cx="8" cy="6" r="2"/><circle cx="16" cy="12" r="2"/><circle cx="10" cy="18" r="2"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+    <symbol id="i-bell" viewBox="0 0 24 24"><path d="M18 8a6 6 0 0 0-12 0c0 8-3 8-3 9h18c0-1-3-1-3-9M9 21h6"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+    <symbol id="i-send" viewBox="0 0 24 24"><path d="m12 19 0-14M6 11l6-6 6 6"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v12m-5-5 5 5 5-5M4 16v5h16v-5"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="m12 3 8 3v6c0 5-8 9-8 9s-8-4-8-9V6ZM8 12l3 3 5-6"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
+    <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"/></symbol>
+    <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></symbol>
+  </defs></svg>
+  <aside class="sidebar" id="sidebar">
+    <a href="#home" class="brand" aria-label="Fin-Agent 首页"><span class="brand-mark">F<span></span></span><span>Fin-Agent<small>你的个人投研工作台</small></span></a>
+    <button class="new-research" data-action="new-research"><svg class="icon"><use href="#i-plus"/></svg>新建研究</button>
+    <nav aria-label="主要导航" class="nav-main">
+      <a href="#home" data-nav="home"><svg class="icon"><use href="#i-grid"/></svg>研究概览</a>
+      <a href="#research" data-nav="research"><svg class="icon"><use href="#i-spark"/></svg>投研助手<span class="nav-tag">AI</span></a>
+      <a href="#watchlist" data-nav="watchlist"><svg class="icon"><use href="#i-star"/></svg>我的自选<span id="watch-count"></span></a>
+      <a href="#portfolio" data-nav="portfolio"><svg class="icon"><use href="#i-bag"/></svg>模拟组合</a>
+      <a href="#strategy" data-nav="strategy"><svg class="icon"><use href="#i-chart"/></svg>策略实验室</a>
+      <a href="#library" data-nav="library"><svg class="icon"><use href="#i-file"/></svg>研究记录</a>
+    </nav>
+    <div class="sidebar-bottom"><div class="sidebar-note"><svg class="icon"><use href="#i-shield"/></svg><strong>你的数据，你的选择</strong><p>连接自己的数据源和模型，<br>构建专属研究空间。</p><a href="#settings">管理连接<svg class="icon"><use href="#i-chevron"/></svg></a></div>
+    <a href="#settings" class="settings-link" data-nav="settings"><svg class="icon"><use href="#i-settings"/></svg>连接与偏好</a>
+    <div class="profile"><span class="avatar">研</span><div>我的研究空间<small>免注册 · 记录保存在浏览器</small></div><span class="version">v1.0</span></div></div>
+  </aside>
+  <div class="app-shell">
+    <header class="topbar"><div class="breadcrumbs"><button class="icon-button mobile-menu" aria-label="打开导航" data-action="menu"><svg class="icon"><use href="#i-menu"/></svg></button><span>工作空间</span><span class="crumb-divider">/</span><strong id="page-title">研究概览</strong></div><div class="topbar-actions"><button class="search-button" data-action="search"><svg class="icon"><use href="#i-search"/></svg><span>搜索股票或研究</span><kbd>Ctrl K</kbd></button><span class="demo-pill" id="connection-badge">尚未配置</span><button class="icon-button" aria-label="数据与隐私说明" data-action="privacy"><svg class="icon"><use href="#i-shield"/></svg></button></div></header>
+    <main id="main" tabindex="-1"></main>
+    <footer class="page-footer"><span>Fin-Agent · 让研究有据可循</span><span>行情为数据源最近收盘价。研究与回测不构成投资建议。</span></footer>
+  </div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <dialog id="modal" aria-labelledby="modal-title"><div id="modal-content"></div></dialog>
+</body>
+</html>
