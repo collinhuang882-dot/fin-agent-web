@@ -1,19 +1,5 @@
 # Fin-Agent: 智能金融分析助手
 
-<div align="center">
-
-[![Website](https://img.shields.io/badge/Website-fin--agent.chat-blue?style=flat-square)](https://www.fin-agent.chat/)
-[![PyPI version](https://img.shields.io/pypi/v/fin-agent.svg?style=flat-square)](https://pypi.org/project/fin-agent/)
-[![Python Versions](https://img.shields.io/pypi/pyversions/fin-agent.svg?style=flat-square)](https://pypi.org/project/fin-agent/)
-[![License](https://img.shields.io/github/license/YUHAI0/fin-agent.svg?style=flat-square)](https://github.com/YUHAI0/fin-agent/blob/main/LICENSE)
-[![Repo Size](https://img.shields.io/github/repo-size/YUHAI0/fin-agent.svg?style=flat-square)](https://github.com/YUHAI0/fin-agent)
-[![Last Commit](https://img.shields.io/github/last-commit/YUHAI0/fin-agent.svg?style=flat-square)](https://github.com/YUHAI0/fin-agent/commits/main)
-[![Star this repo](https://img.shields.io/github/stars/YUHAI0/fin-agent?style=social&label=Star)](https://github.com/YUHAI0/fin-agent)
-
-</div>
-
-> 🎉 **桌面版已发布！** 想要更便捷的使用体验？[**点击前往 Fin-Agent Desktop**](https://github.com/YUHAI0/fin-agent-desktop) - 基于 Electron 的图形界面版本，功能更强大，操作更简单！
-
 Fin-Agent 是一个基于 **DeepSeek** 等大模型和 **Tushare** 金融数据的智能金融分析助手。它能够通过自然语言交互，帮助用户查询股票行情、分析财务数据、获取**宏观数据**、市场指标、**选股筛选**以及**策略回测**，并提供投资参考建议。
 
 **全新升级**：
