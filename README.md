@@ -225,14 +225,4 @@ Agent 通过工具 **`run_backtest`** 调用内置回测引擎：传入 **Tushar
 *   **金融数据**: [Tushare Pro](https://tushare.pro/) - 专业免费的财经数据接口包。
 *   **大模型**: 支持 [DeepSeek](https://www.deepseek.com/), Moonshot, ZhipuAI, Qwen 等多种模型。
 
-## 📝 许可证
 
-本项目采用 [MIT License](LICENSE) 开源许可证。
-
-## 👥 开源贡献
-
-![Alt](https://repobeats.axiom.co/api/embed/788a8349b9decac56318a205859ba6d52b2edddd.svg "Repobeats analytics image")
-
-## ⭐ Star History
-
-[![Star History Chart](https://api.star-history.com/svg?repos=YUHAI0/fin-agent&type=date&legend=top-left)](https://www.star-history.com/#YUHAI0/fin-agent&type=date&legend=top-left)
